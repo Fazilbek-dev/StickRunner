@@ -22,6 +22,16 @@ public class run : MonoBehaviour
 
     private void Turn()
     {
+        Touch touch = Input.GetTouch(0);
+        if (touch.deltaPosition.x > 0.1f)
+        {
+            _pos.position = new Vector3(_pos.position.x + _turnSpeed, _pos.position.y, _pos.position.z);
+        }
+        if (touch.deltaPosition.x < 0.1f)
+        {
+            _pos.position = new Vector3(_pos.position.x - _turnSpeed, _pos.position.y, _pos.position.z);
+        }
+
         if (Input.GetKeyDown(KeyCode.D))
             _pos.position = new Vector3(_pos.position.x + _turnSpeed, _pos.position.y, _pos.position.z);
         else if (Input.GetKeyDown(KeyCode.A))
